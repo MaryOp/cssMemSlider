@@ -16,24 +16,19 @@
             "legend":"3"
   },
   "mem4": {
-                "id": 4,
+            "id": 4,
             "url":"./assets/4.jpg",
             "legend":"4"
   },
   "mem5":{
-                "id": 5,
+            "id": 5,
             "url":"./assets/5.jpg",
             "legend":"5"
   },
   "mem6":{
-                "id": 6,
+            "id": 6,
             "url":"./assets/6.jpg",
-            "legend":""
-  },
-  "mem7": {
-                "id": 7,
-            "url":"./assets/7.jpg",
-            "legend":"7"
+            "legend":"6"
   }
 
 }

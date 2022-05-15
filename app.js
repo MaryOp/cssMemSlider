@@ -8,21 +8,21 @@ class Mem {
         this.legend = legend;
     }
 
-createMem() {
+    createMem() {
 
-    let image = new element("img", "slide_"+this.id, "", "img");
-    image.create();
-    let imageSlide = document.querySelector(".slide_"+this.id);
-    let legend_span = new element("span", "legend-span_" + this.id, "", "legend");
-    legend_span.create();
-    let legendSpan = document.querySelector(".legend-span_" + this.id);
-    imageSlide.src = this.url;
-    legendSpan.innerText = this.legend;
+        let image = new element("img", "slide_"+this.id, "", "img");
+        image.create();
+        let imageSlide = document.querySelector(".slide_"+this.id);
+
+        let legend_span = new element("span", "legend-span_" + this.id, "", "legend");
+        legend_span.create();
+        let legendSpan = document.querySelector(".legend-span_" + this.id);
+
+        imageSlide.src = this.url;
+        legendSpan.innerText = this.legend;
+    }
 }
-}
 
-
-// console.log(mem1)
 
 class element {
     constructor(tag, classname, value, parent) {
@@ -36,7 +36,7 @@ class element {
    
     let r = document.createElement(this.tag);
         r.className = this.classname;
-        let value = this.value;
+        r.value = this.value;
         if (this.parent!="document.body") {
             parent = document.querySelector("."+ this.parent);
             parent.appendChild(r);
@@ -72,13 +72,55 @@ let mems = JSON.parse(request.responseText);
 
 for(key in mems) {
     let order_num = (key.slice(3));
-    // let mem_lenght = order_num;
-    let mem1 = new Mem (mems[key]["id"],mems[key]["url"],mems[key]["legend"]); 
 
-    mem1.createMem();
+    let mem = new Mem (mems[key]["id"],mems[key]["url"],mems[key]["legend"]); 
+
+    mem.createMem();
+    let MemImg = document.querySelector(".slide_" + order_num);
+    let MemLegend = document.querySelector(".legend-span_" + order_num);
+    MemImg.classList.add("disabled");
+    MemLegend.classList.add("disabled");
+
+    let input_label = new element("label", "label_"+order_num, "", "toggler");
+    input_label.create();
+    let input = new element("input", "input_"+order_num, order_num, "label_"+order_num);
+    
+    input.create();
+    let dom_input =  document.querySelector(".input_"+order_num);
+
+    dom_input.type="radio";
+    dom_input.name = "toggle";
 }
 
-console.log(mems["mem1"]["legend"]);
-// imageSlide.src = "./assets/1.jpg";
-// legendSpan.innerText = mems["mem1"]["legend"];
-// console.log(mem_lenght)
+document.querySelector(".input_1").setAttribute("checked", true);
+
+let activeMemImg = document.querySelector(".slide_1");
+let activeMemLegend = document.querySelector(".legend-span_1");
+activeMemImg.classList.add("active");
+activeMemImg.classList.remove("disabled");
+activeMemLegend.classList.add("active");
+activeMemLegend.classList.remove("disabled");
+
+
+
+document.querySelectorAll('input').forEach((elem) => {
+    elem.addEventListener("change", function(event) {
+        for(key in mems) {
+            let order_num = (key.slice(3)); 
+            let image =  document.querySelector(".slide_"+order_num);
+            let legend = document.querySelector(".legend-span_" + order_num);
+            image.classList.remove("active");
+            image.classList.add("disabled");
+            legend.classList.remove("active");
+            legend.classList.add("disabled");
+        }
+        let count = document.querySelector("input:checked").value;
+        let activeMemImg = document.querySelector(".slide_" + count);
+        let activeMemLegend = document.querySelector(".legend-span_" + count);
+        activeMemImg.classList.add("active");
+        activeMemImg.classList.remove("disabled");
+        activeMemLegend.classList.add("active");
+        activeMemLegend.classList.remove("disabled");
+    })
+})
+
