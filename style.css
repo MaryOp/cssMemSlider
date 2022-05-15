@@ -17,7 +17,7 @@ body {
             }
 
             .wrapper {
-                /* height: 60vh; */
+              
                 width: 80%;
                 margin: 7vh auto;
                 
@@ -30,7 +30,7 @@ body {
             justify-content: space-between;
             align-items:stretch;
             align-content: center;
-            /* outline: 1px solid blue; */
+        
         }
 
 .toggler {
@@ -47,12 +47,19 @@ body {
     input {
         width: 2em;
         height: 2em;
-        /* margin: 0 1.5rem; */
+      
     }
 
-
+    .legend {
+        align-self: center;
+    }
 }
 
+@media (min-width: 1200px) {
+    .wrapper {
+        width: 1100px;
+    }
+}
 /*END OF DESKTOP VERSION*/
 /*START OF MOBILE VERSION*/
 @media (max-width: 830px) {
@@ -66,8 +73,7 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            /* height: 100vh; */
-            /* outline: 1px solid blue; */
+           
         }
 
         .toggler-wrapper {
@@ -79,13 +85,10 @@ body {
             }
 
             .toggler {
-                /* position: absolute;
-                top: 100px;
-                right: 200px; */
+         
                 display: flex;
                 width: 70vw;
-                /* height: 5; */
-                /* outline: 1px solid blue; */
+                
                 align-items: center;
                 align-content: center;
                 justify-content: space-evenly;
@@ -94,7 +97,8 @@ body {
             .legend {
                 align-self: flex-start;
                 margin-left: 5%;
-                margin-top: 5%
+                margin-top: 5%;
+                margin-right: 5%
             }
 
             .img > img {
@@ -112,7 +116,7 @@ body {
             input {
                 width: 2em;
                 height: 2em;
-                /* margin: 0 0.3rem; */
+               
             }
 }
 
@@ -131,7 +135,7 @@ body {
 }
 
 label {
-    /* outline: 1px solid red; */
+   
     height: 4em;
     width: 4em;
     display: flex;
@@ -216,5 +220,4 @@ label:hover {
 
 .disappear {
     animation: disappear 2s ease;
-    animation-fill-mode: forwards;
 }

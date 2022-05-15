@@ -1,6 +1,5 @@
 let img_place = document.querySelector(".img")
 
-
 class Mem {
     constructor(id, url, legend) {
         this.url = url;
@@ -44,8 +43,6 @@ class element {
         else {
             document.body.appendChild(r);
         }
-
-
    } 
 }
 
@@ -54,15 +51,12 @@ wrapper.create();
 let image_block = new element("div", "img", "", "wrapper");
 image_block.create();
 
-
 let toggle_wrapper = new element("div", "toggler-wrapper", "", "wrapper");
 toggle_wrapper.create();
 let toggler = new element("div", "toggler", "", "toggler-wrapper")
 toggler.create();
 let legend = new element("div", "legend", "", "toggler-wrapper");
 legend.create();
-
-
 
 
 let request = new XMLHttpRequest();
@@ -81,12 +75,12 @@ for(key in mems) {
     MemImg.classList.add("disabled");
     MemLegend.classList.add("disabled");
 
-    let input_label = new element("label", "label_"+order_num, "", "toggler");
+    let input_label = new element("label", "label_" + order_num, "", "toggler");
     input_label.create();
-    let input = new element("input", "input_"+order_num, order_num, "label_"+order_num);
+    let input = new element("input", "input_" + order_num, order_num, "label_" + order_num);
     
     input.create();
-    let dom_input =  document.querySelector(".input_"+order_num);
+    let dom_input =  document.querySelector(".input_" + order_num);
 
     dom_input.type="radio";
     dom_input.name = "toggle";
@@ -101,27 +95,13 @@ activeMemImg.classList.remove("disabled");
 activeMemLegend.classList.add("active");
 activeMemLegend.classList.remove("disabled");
 
-// let currentSlide = document.querySelector("input:checked").value;
 
 document.querySelectorAll('input').forEach((elem) => {
     elem.addEventListener("change", function(event) {
 
         let currentNumber = document.querySelector(".active").classList[0].slice(6);
         let currentImage = document.querySelector(".slide_" + currentNumber);
-        currentImage.classList.add("disappear");
-        // console.log(document.querySelector(".slide_" + currentNumber).className)
-
-        // currentImage.addEventListener("transitionend", function() {
-        //     for(key in mems) {
-        //         let order_num = (key.slice(3)); 
-        //         let image =  document.querySelector(".slide_"+order_num);
-        //         let legend = document.querySelector(".legend-span_" + order_num);
-        //         image.classList.remove("active");
-        //         image.classList.add("disabled");
-        //         legend.classList.remove("active");
-        //         legend.classList.add("disabled");
-        //     }   
-        //   })
+        
         for(key in mems) {
             let order_num = (key.slice(3)); 
             let image =  document.querySelector(".slide_"+order_num);
@@ -132,8 +112,6 @@ document.querySelectorAll('input').forEach((elem) => {
             legend.classList.add("disabled");
         }
         
-        
-        // currentSlide.classList.add("disappear");
         let count = document.querySelector("input:checked").value;
         let activeMemImg = document.querySelector(".slide_" + count);
         let activeMemLegend = document.querySelector(".legend-span_" + count);
@@ -141,9 +119,7 @@ document.querySelectorAll('input').forEach((elem) => {
         activeMemImg.classList.remove("disabled");
         activeMemLegend.classList.add("active");
         activeMemLegend.classList.remove("disabled");
-        document.querySelector(".slide_" + currentNumber).classList.remove("disappear");
-        // console.log(document.querySelector(".slide_" + currentNumber).className)
-        
+
     })
 })
 
