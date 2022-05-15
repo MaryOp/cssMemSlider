@@ -8,9 +8,11 @@ body {
  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+
+/*START OF DESKTOP VERSION*/
 @media (min-width: 831px) {
             body {
-                font-size: 10px;
+                font-size: 15px;
                 font-weight: bold;
             }
 
@@ -22,7 +24,7 @@ body {
                 
             }
         .toggler-wrapper {
-            margin-top: 1.5rem;
+            margin-top: 1.5em;
             display: flex;
             flex-direction: row-reverse;
             justify-content: space-between;
@@ -33,7 +35,7 @@ body {
 
 .toggler {
     display: flex;
-    width: 20rem;
+    width: 20em;
 
     justify-content: space-between;
 }
@@ -43,41 +45,38 @@ body {
         }
 
     input {
-        width: 2rem;
-        height: 2rem;
+        width: 2em;
+        height: 2em;
         /* margin: 0 1.5rem; */
     }
 
 
 }
 
-
+/*END OF DESKTOP VERSION*/
+/*START OF MOBILE VERSION*/
 @media (max-width: 830px) {
             body {
-                font-size: 7px;
+                font-size: 12px;
                 font-weight: bold;
             }
-
 
         .wrapper {
             margin: 5% auto;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            /* height: 80vh; */
+            /* height: 100vh; */
             /* outline: 1px solid blue; */
-            
         }
 
         .toggler-wrapper {
-            margin-top: 1.5rem;
+            margin-top: 1.5em;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            
             }
-
 
             .toggler {
                 /* position: absolute;
@@ -85,10 +84,11 @@ body {
                 right: 200px; */
                 display: flex;
                 width: 70vw;
-                /* height: 50px; */
+                /* height: 5; */
                 /* outline: 1px solid blue; */
-                justify-content: space-between;
-                
+                align-items: center;
+                align-content: center;
+                justify-content: space-evenly;
             }
 
             .legend {
@@ -98,17 +98,25 @@ body {
             }
 
             .img > img {
-                width: 95%;
+                max-width: 95%;
+                max-height: 100%;
+            }
+        
+            .img {
+                display:flex;
+                height: 70vh;
+                align-items: center;
+
             }
 
-
             input {
-                width: 2rem;
-                height: 2rem;
+                width: 2em;
+                height: 2em;
                 /* margin: 0 0.3rem; */
             }
 }
 
+/*END OF MOBILE VERSION*/
 
 .img {
     margin: 0 auto;
@@ -117,10 +125,18 @@ body {
 
 .img > img {
     margin: 0 auto;
-    border-radius: 0.7rem;
+    border-radius: 0.7em;
+    animation: appear 2s ease;
+   
 }
 
-
+label {
+    /* outline: 1px solid red; */
+    height: 4em;
+    width: 4em;
+    display: flex;
+    justify-content: center;
+}
 
 input {
     -webkit-appearance: none;
@@ -130,30 +146,31 @@ input {
     left: 0px;
     content: "";
     border-radius: 50%;
-    border: 0.1rem solid lightgrey;
+    border: 0.1em solid lightgrey;
     background-color: antiquewhite;
-
+    align-self: center;
+ 
 }
 
 input:checked {
-    border: 0.4rem solid lightgrey;;
+    border: 0.4em solid lightgrey;;
     background-color: #ec606a;
 }
 
 input:hover {
     background-color: #aa001d;
-    border: 0.3rem solid lightgrey;
+    border: 0.3em solid lightgrey;
     cursor: pointer;
 }
 
 
 input:checked:hover {
     background-color: #aa001d;
-    border: 0.4rem solid lightgrey;;
+    border: 0.4em solid lightgrey;;
 }
 
 input:active {
-    background-color: #e9c7c1;
+    background-color: #ffafc1;
     border: none;
 }
 
@@ -165,10 +182,8 @@ label:hover {
     white-space: normal;
 }
 .legend > span {
-    font-size: 2rem;
-   
-    /* flex-wrap: wrap;
-    display: flex; */
+    font-size: 2em;
+    animation: appear 2s ease;
 }
 
 .active {
@@ -177,4 +192,29 @@ label:hover {
 
 .disabled {
     display:none;
+}
+
+
+@keyframes appear {
+    from {
+        opacity:  0
+       }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes disappear {
+    from {
+        opacity:  1
+    }
+    to {
+        opacity:  0
+    }
+}
+
+.disappear {
+    animation: disappear 2s ease;
+    animation-fill-mode: forwards;
 }
