@@ -50,9 +50,16 @@ body {
       
     }
 
-
+    .legend {
+        align-self: center;
+    }
 }
 
+@media (min-width: 1200px) {
+    .wrapper {
+        width: 1100px;
+    }
+}
 /*END OF DESKTOP VERSION*/
 /*START OF MOBILE VERSION*/
 @media (max-width: 830px) {
@@ -90,7 +97,8 @@ body {
             .legend {
                 align-self: flex-start;
                 margin-left: 5%;
-                margin-top: 5%
+                margin-top: 5%;
+                margin-right: 5%
             }
 
             .img > img {
@@ -212,5 +220,4 @@ label:hover {
 
 .disappear {
     animation: disappear 2s ease;
-    animation-fill-mode: forwards;
 }
