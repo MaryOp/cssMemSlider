@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    /* box-sizing: border-box; */
 }
 
 body {
@@ -20,10 +21,14 @@ body {
               
                 width: 80%;
                 margin: 7vh auto;
+                /* display: grid;
+                grid-column: span; */
+                /* display: inline-flex; */
+                /* flex-direction: column; */
                 
                 
             }
-        .toggler-wrapper {
+        /* .toggler-wrapper {
             margin-top: 1.5em;
             display: flex;
             flex-direction: row-reverse;
@@ -38,15 +43,16 @@ body {
     width: 20em;
 
     justify-content: space-between;
-}
+} */
 
-        .img > img {
+        img {
             height: 60vh;
         }
 
     input {
         width: 2em;
         height: 2em;
+        
       
     }
 
@@ -122,27 +128,31 @@ body {
 
 /*END OF MOBILE VERSION*/
 
-.img {
+img {
     margin: 0 auto;
     text-align: center;
 }
 
-.img > img {
+ img {
     margin: 0 auto;
     border-radius: 0.7em;
     animation: appear 2s ease;
    
 }
 
-label {
+/* label {
    
     height: 4em;
     width: 4em;
     display: flex;
     justify-content: center;
-}
+} */
 
 input {
+    /* height: 2em;
+    width: 2em; */
+    /* padding: 1em; */
+    margin: 0.5em;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -150,32 +160,32 @@ input {
     left: 0px;
     content: "";
     border-radius: 50%;
-    border: 0.1em solid lightgrey;
+    outline: 0.1em solid lightgrey;
     background-color: antiquewhite;
     align-self: center;
  
 }
 
 input:checked {
-    border: 0.4em solid lightgrey;;
+    outline: 0.4em solid lightgrey;;
     background-color: #ec606a;
 }
 
 input:hover {
     background-color: #aa001d;
-    border: 0.3em solid lightgrey;
+    outline: 0.3em solid lightgrey;
     cursor: pointer;
 }
 
 
 input:checked:hover {
     background-color: #aa001d;
-    border: 0.4em solid lightgrey;;
+    outline: 0.4em solid lightgrey;;
 }
 
 input:active {
     background-color: #ffafc1;
-    border: none;
+    outline: none;
 }
 
 label:hover {
@@ -184,20 +194,14 @@ label:hover {
 
 .legend {
     white-space: normal;
-}
-.legend > span {
     font-size: 2em;
     animation: appear 2s ease;
 }
 
-.active {
-    opacity: 1;
-}
 
-.disabled {
-    display:none;
+.appear {
+    animation: appear 2s ease;
 }
-
 
 @keyframes appear {
     from {
@@ -209,15 +213,113 @@ label:hover {
     }
 }
 
-@keyframes disappear {
-    from {
-        opacity:  1
-    }
-    to {
-        opacity:  0
-    }
+
+img {
+    opacity: 0;
+    z-index: -1;
+    display: none
 }
 
-.disappear {
-    animation: disappear 2s ease;
+
+.legend {
+    opacity: 0;
+    z-index: -1;
+    display: none
+   
 }
+
+
+
+
+input[value="1"]:checked ~ .leg1 {  
+    opacity: 1;
+    display: flex;
+    
+    z-index: 1;
+   
+} 
+
+
+ input[value="1"]:checked ~ img[src$="1.jpg"] {
+    opacity: 1;
+   
+    z-index: 1;
+    display: flex;
+  
+} 
+
+
+
+
+ input[value="2"]:checked ~ .leg2 {  
+    opacity: 1;
+   
+    z-index: 1;
+    display: flex
+   
+} 
+
+
+ input[value="2"]:checked ~ img[src$="2.jpg"] {
+    opacity: 1;
+    
+    z-index: 1;
+    display: flex;
+   
+} 
+
+
+input[value="3"]:checked ~ .leg3 {  
+    opacity: 1;
+    display: flex;
+    
+    z-index: 1;
+   
+} 
+
+
+ input[value="3"]:checked ~ img[src$="3.jpg"] {
+    opacity: 1;
+   
+    z-index: 1;
+    display: flex;
+  
+} 
+
+
+input[value="4"]:checked ~ .leg4 {  
+    opacity: 1;
+    display: flex;
+    
+    z-index: 1;
+   
+} 
+
+
+ input[value="4"]:checked ~ img[src$="4.jpg"] {
+    opacity: 1;
+   
+    z-index: 1;
+    display: flex;
+  
+} 
+
+
+input[value="5"]:checked ~ .leg5 {  
+    opacity: 1;
+    display: flex;
+    
+    z-index: 1;
+   
+} 
+
+
+ input[value="5"]:checked ~ img[src$="5.jpg"] {
+    opacity: 1;
+   
+    z-index: 1;
+    display: flex;
+  
+} 
+
+
