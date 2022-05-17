@@ -20,44 +20,83 @@ body {
             .wrapper {
               
                 width: 80%;
+                height: 70vh;
                 margin: 7vh auto;
-                /* display: grid;
-                grid-column: span; */
-                /* display: inline-flex; */
-                /* flex-direction: column; */
-                
-                
+                /* display: flex;
+                flex-direction: row-reverse;
+                outline: 1px solid blue;
+                align-items: flex-end; */
+                display: grid;
+                grid-template-columns: 1fr repeat(5, 3em);
+                grid-template-rows: auto 3em;
+                grid-row-gap: 1vh;
+
+
             }
-        /* .toggler-wrapper {
-            margin-top: 1.5em;
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: space-between;
-            align-items:stretch;
-            align-content: center;
-        
-        }
-
-.toggler {
-    display: flex;
-    width: 20em;
-
-    justify-content: space-between;
-} */
+       
 
         img {
             height: 60vh;
+            margin: 0 auto;
+            align-self: flex-start;
+            grid-column: span 6;
+            
+            justify-items: center;
+            
         }
 
     input {
         width: 2em;
         height: 2em;
-        
-      
+        /* justify-items: end; */
+        align-self: flex-end;
+        /* grid-row:  span 2; */
+        grid-row-start: 2;
+        grid-row-end: 3;
+       
+        align-self: center;
+        /* grid-column-start: 3;
+        grid-column-end: 4; */
     }
 
+    input[value="1"] {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    input[value="2"] {
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+
+    input[value="3"] {
+        grid-column-start: 4;
+        grid-column-end: 5;
+    }
+
+
+    input[value="4"] {
+        grid-column-start: 5;
+        grid-column-end: 6;
+    }
+
+    input[value="5"] {
+        grid-column-start: 6;
+        grid-column-end: 7;
+    }
+
+
+
+
     .legend {
+        align-self: flex-end;
+        /* outline: 1px solid red; */
+        /* grid-row: span 2; */
+        grid-row-start: 2;
+        grid-row-end: 3;
+        
         align-self: center;
+
     }
 }
 
@@ -77,45 +116,30 @@ body {
         .wrapper {
             margin: 5% auto;
             display: flex;
-            flex-direction: column;
-            justify-content: space-around;
+            /* flex-direction: column;
+            justify-content: space-around; */
+            display: grid;
+                grid-template-columns: 1fr repeat(5, 3em) 1fr;
+                grid-template-rows: auto 3em auto;
+                grid-row-gap: 1vh;
            
         }
 
-        .toggler-wrapper {
-            margin-top: 1.5em;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            }
-
-            .toggler {
-         
-                display: flex;
-                width: 70vw;
-                
-                align-items: center;
-                align-content: center;
-                justify-content: space-evenly;
-            }
-
             .legend {
-                align-self: flex-start;
+                /* align-self: flex-start; */
                 margin-left: 5%;
                 margin-top: 5%;
                 margin-right: 5%
+
             }
 
-            .img > img {
+            img {
                 max-width: 95%;
                 max-height: 100%;
-            }
-        
-            .img {
-                display:flex;
+            grid-column: span 7;
+                /* display:flex; */
                 height: 70vh;
-                align-items: center;
+                /* align-items: center; */
 
             }
 
@@ -124,6 +148,35 @@ body {
                 height: 2em;
                
             }
+
+
+
+
+    input[value="1"] {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    input[value="2"] {
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+
+    input[value="3"] {
+        grid-column-start: 4;
+        grid-column-end: 5;
+    }
+
+
+    input[value="4"] {
+        grid-column-start: 5;
+        grid-column-end: 6;
+    }
+
+    input[value="5"] {
+        grid-column-start: 6;
+        grid-column-end: 7;
+    }
 }
 
 /*END OF MOBILE VERSION*/
@@ -131,22 +184,10 @@ body {
 img {
     margin: 0 auto;
     text-align: center;
-}
-
- img {
-    margin: 0 auto;
     border-radius: 0.7em;
-    animation: appear 2s ease;
    
 }
 
-/* label {
-   
-    height: 4em;
-    width: 4em;
-    display: flex;
-    justify-content: center;
-} */
 
 input {
     /* height: 2em;
@@ -195,7 +236,6 @@ label:hover {
 .legend {
     white-space: normal;
     font-size: 2em;
-    animation: appear 2s ease;
 }
 
 
@@ -220,103 +260,78 @@ img {
     display: none
 }
 
-
 .legend {
     opacity: 0;
     z-index: -1;
     display: none
-   
 }
-
-
 
 
 input[value="1"]:checked ~ .leg1 {  
     opacity: 1;
     display: flex;
-    
     z-index: 1;
-   
 } 
 
 
- input[value="1"]:checked ~ img[src$="1.jpg"] {
+input[value="1"]:checked ~ img[src$="1.jpg"] {
     opacity: 1;
-   
-    z-index: 1;
+    z-index:1;
     display: flex;
   
 } 
 
-
-
-
  input[value="2"]:checked ~ .leg2 {  
     opacity: 1;
-   
     z-index: 1;
     display: flex
    
 } 
 
-
  input[value="2"]:checked ~ img[src$="2.jpg"] {
     opacity: 1;
-    
     z-index: 1;
     display: flex;
    
 } 
-
 
 input[value="3"]:checked ~ .leg3 {  
     opacity: 1;
     display: flex;
-    
     z-index: 1;
    
 } 
 
-
  input[value="3"]:checked ~ img[src$="3.jpg"] {
     opacity: 1;
-   
     z-index: 1;
     display: flex;
   
 } 
-
 
 input[value="4"]:checked ~ .leg4 {  
     opacity: 1;
     display: flex;
-    
     z-index: 1;
    
 } 
 
-
  input[value="4"]:checked ~ img[src$="4.jpg"] {
     opacity: 1;
-   
     z-index: 1;
     display: flex;
   
 } 
 
-
 input[value="5"]:checked ~ .leg5 {  
     opacity: 1;
     display: flex;
-    
     z-index: 1;
    
 } 
 
-
  input[value="5"]:checked ~ img[src$="5.jpg"] {
     opacity: 1;
-   
     z-index: 1;
     display: flex;
   
