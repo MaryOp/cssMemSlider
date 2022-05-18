@@ -79,12 +79,12 @@ body {
         align-self: center;
     }
 }
-
+/* 
 @media (min-width: 1200px) {
     .wrapper {
         width: 1100px;
     }
-}
+} */
 /*END OF DESKTOP VERSION*/
 /*START OF MOBILE VERSION*/
 @media (max-width: 830px) {
