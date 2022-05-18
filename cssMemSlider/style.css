@@ -1,0 +1,310 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+ background-color: slategrey;   
+ font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+/*START OF DESKTOP VERSION*/
+@media (min-width: 831px) {
+            body {
+                font-size: 15px;
+                font-weight: bold;
+            }
+
+            .wrapper {
+              
+                width: 80%;
+                height: 70vh;
+                margin: 7vh auto;
+                display: grid;
+                grid-template-columns: 1fr repeat(5, 3em);
+                grid-template-rows: auto 3em;
+                grid-row-gap: 1vh;
+            }
+       
+
+        img {
+            height: 60vh;
+            margin: 0 auto;
+            align-self: flex-start;
+            grid-column: span 6;
+            justify-items: center;
+            
+        }
+
+    input {
+        width: 2em;
+        height: 2em;
+        align-self: flex-end;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        align-self: center;
+    }
+
+    input[value="1"] {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    input[value="2"] {
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+
+    input[value="3"] {
+        grid-column-start: 4;
+        grid-column-end: 5;
+    }
+
+
+    input[value="4"] {
+        grid-column-start: 5;
+        grid-column-end: 6;
+    }
+
+    input[value="5"] {
+        grid-column-start: 6;
+        grid-column-end: 7;
+    }
+
+    .legend {
+        align-self: flex-end;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        align-self: center;
+    }
+}
+/* 
+@media (min-width: 1200px) {
+    .wrapper {
+        width: 1100px;
+    }
+} */
+/*END OF DESKTOP VERSION*/
+/*START OF MOBILE VERSION*/
+@media (max-width: 830px) {
+            body {
+                font-size: 12px;
+                font-weight: bold;
+            }
+
+        .wrapper {
+            margin: 5% auto;
+            display: grid;
+            grid-template-columns: 1fr repeat(5, 3em) 1fr;
+            grid-template-rows: 65vh 3em auto;
+            grid-row-gap: 3vh;
+           
+        }
+
+            .legend {
+                margin-left: 5%;
+                margin-right: 5%;
+                grid-row-start: 3;
+                grid-row-end: 4;
+                grid-column: span 7;
+
+            }
+
+            img {
+                max-width: 95%;
+                max-height: 100%;
+                grid-column: span 7;
+                grid-row-start: 1;
+                grid-row-end: 2;
+            }
+
+            input {
+                width: 2em;
+                height: 2em;
+                grid-row-start: 2;
+                grid-row-end: 3;
+            }
+
+
+    input[value="1"] {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    input[value="2"] {
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+
+    input[value="3"] {
+        grid-column-start: 4;
+        grid-column-end: 5;
+    }
+
+
+    input[value="4"] {
+        grid-column-start: 5;
+        grid-column-end: 6;
+    }
+
+    input[value="5"] {
+        grid-column-start: 6;
+        grid-column-end: 7;
+    }
+}
+
+/*END OF MOBILE VERSION*/
+
+img {
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 0.7em;
+   
+}
+
+
+input {
+    margin: 0.5em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    content: "";
+    border-radius: 50%;
+    outline: 0.1em solid lightgrey;
+    background-color: antiquewhite;
+    align-self: center;
+ 
+}
+
+input:checked {
+    outline: 0.4em solid lightgrey;;
+    background-color: #ec606a;
+}
+
+input:hover {
+    background-color: #aa001d;
+    outline: 0.3em solid lightgrey;
+    cursor: pointer;
+}
+
+
+input:checked:hover {
+    background-color: #aa001d;
+    outline: 0.4em solid lightgrey;;
+}
+
+input:active {
+    background-color: #ffafc1;
+    outline: none;
+}
+
+label:hover {
+    cursor: pointer;
+}
+
+.legend {
+    white-space: normal;
+    font-size: 2em;
+}
+
+
+.appear {
+    animation: appear 2s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity:  0
+       }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+img {
+    opacity: 0;
+    z-index: -1;
+    display: none
+}
+
+.legend {
+    opacity: 0;
+    z-index: -1;
+    display: none
+}
+
+
+input[value="1"]:checked ~ .leg1 {  
+    opacity: 1;
+    display: flex;
+    z-index: 1;
+} 
+
+
+input[value="1"]:checked ~ img[src$="1.jpg"] {
+    opacity: 1;
+    z-index:1;
+    display: flex;
+  
+} 
+
+ input[value="2"]:checked ~ .leg2 {  
+    opacity: 1;
+    z-index: 1;
+    display: flex
+   
+} 
+
+ input[value="2"]:checked ~ img[src$="2.jpg"] {
+    opacity: 1;
+    z-index: 1;
+    display: flex;
+   
+} 
+
+input[value="3"]:checked ~ .leg3 {  
+    opacity: 1;
+    display: flex;
+    z-index: 1;
+   
+} 
+
+ input[value="3"]:checked ~ img[src$="3.jpg"] {
+    opacity: 1;
+    z-index: 1;
+    display: flex;
+  
+} 
+
+input[value="4"]:checked ~ .leg4 {  
+    opacity: 1;
+    display: flex;
+    z-index: 1;
+   
+} 
+
+ input[value="4"]:checked ~ img[src$="4.jpg"] {
+    opacity: 1;
+    z-index: 1;
+    display: flex;
+  
+} 
+
+input[value="5"]:checked ~ .leg5 {  
+    opacity: 1;
+    display: flex;
+    z-index: 1;
+   
+} 
+
+ input[value="5"]:checked ~ img[src$="5.jpg"] {
+    opacity: 1;
+    z-index: 1;
+    display: flex;
+  
+} 
+
+
